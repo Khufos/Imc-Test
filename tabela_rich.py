@@ -21,7 +21,7 @@ for [primeiro_nome,sobrenomes,peso,altura] in arquivo:
     contacts.append((primeiro_nome,sobrenomes,peso,altura))
 
 for i in range(1,len(contacts)):
-    nome = (contacts[i][0] + contacts[i][1]).upper()
+    nome = (contacts[i][0] + " " + contacts[i][1]).upper()
     peso = (contacts[i][2])
     altura = (contacts[i][3])
     if peso != '':

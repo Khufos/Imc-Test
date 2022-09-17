@@ -35,7 +35,7 @@ class Tela:
         for [primeiro_nome,sobrenomes,peso,altura] in arquivo:
             self.contacts.append((primeiro_nome,sobrenomes,peso,altura))
         for i in range(1,len(self.contacts)):
-            nome = (self.contacts[i][0] + self.contacts[i][1]).upper()
+            nome = (self.contacts[i][0] + " " + self.contacts[i][1]).upper()
             peso = (self.contacts[i][2])
             altura = (self.contacts[i][3])
             if peso != '':
