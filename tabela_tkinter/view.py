@@ -4,8 +4,10 @@ from tkinter.messagebox import showinfo
 from opcode import hasjabs
 from tkinter import *
 from tkinter import ttk
+import os
 import csv
-
+diretorio_base = os.path.dirname(os.path.abspath(".")) 
+diretorio_data = os.path.join(diretorio_base, "dados")
 
 class Tela:
     
@@ -31,7 +33,7 @@ class Tela:
 
         self.contacts = []
         self.resultado = []
-        arquivo = csv.reader(open('dataset.csv'),delimiter=';')
+        arquivo = csv.reader(open(diretorio_data+"\dataset.csv"),delimiter=';')
         for [primeiro_nome,sobrenomes,peso,altura] in arquivo:
             self.contacts.append((primeiro_nome,sobrenomes,peso,altura))
         for i in range(1,len(self.contacts)):

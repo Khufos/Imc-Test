@@ -4,6 +4,10 @@ from rich.table import Table
 import csv
 from rich.console import Console
 from calc import massa
+import os
+diretorio_base = os.path.dirname(os.path.abspath(".")) 
+diretorio_data = os.path.join(diretorio_base, "dados")
+print(diretorio_data)
 contacts = []
 tabela ={}
 
@@ -16,7 +20,7 @@ table.add_column("Indice de Massa Corporal",style="blue")
 
 
 console = Console()
-arquivo = csv.reader(open('dataset.csv'),delimiter=';')
+arquivo = csv.reader(open(diretorio_data+"\dataset.csv"),delimiter=';')
 for [primeiro_nome,sobrenomes,peso,altura] in arquivo:
     contacts.append((primeiro_nome,sobrenomes,peso,altura))
 
