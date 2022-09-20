@@ -19,7 +19,7 @@ class Tela:
         self.tree= ttk.Treeview(self.window, selectmode='browse',column=("Column1","Column2","Column3","Column4"),show='headings')
     
         #--------Show cabeçario -------------""
-        self.tree.column("Column1",width=200,minwidth=50,stretch=NO)
+        self.tree.column("Column1",width=250,minwidth=50,stretch=NO)
         self.tree.heading("#1",text='Nome')
         #===========================================================#
         self.tree.column("Column2",width=120,minwidth=50,stretch=NO)
@@ -30,22 +30,26 @@ class Tela:
         #============================================================
         self.tree.column("Column4",width=120,minwidth=50,stretch=NO)
         self.tree.heading("#4",text='Resultado do IMC')
-
-        self.contacts = []
+        dados = []
         self.resultado = []
         arquivo = csv.reader(open(diretorio_data+"\dataset.csv"),delimiter=';')
         for [primeiro_nome,sobrenomes,peso,altura] in arquivo:
-            self.contacts.append((primeiro_nome,sobrenomes,peso,altura))
-        for i in range(1,len(self.contacts)):
-            nome = (self.contacts[i][0] + " " + self.contacts[i][1]).upper()
-            peso = (self.contacts[i][2])
-            altura = (self.contacts[i][3])
+            dados.append((primeiro_nome,sobrenomes,peso,altura))
+        #========================================================================
+        for index, values in enumerate(dados):
+            if index == 0:
+                continue
+            nome = (values[0]+" " + " "+values[1]).strip().upper().replace("   ", " ")
+            peso = values[2]
+            altura = values[3]  
             if peso != '':
-                new_peso = float(peso.replace(",",".").strip())
-                new_altura = float(altura.replace(",",".").strip())
-                imc = (new_peso / new_altura**2)
-                total = f"{imc:.2f}"
-                self.resultado.append((nome,peso,altura,total))      
+                new_peso = float(peso.replace(",","."))
+                new_altura = float(altura.replace(",","."))
+            imc = (new_peso / new_altura**2)
+            total = f"{imc:.2f}"
+            self.resultado.append((nome,peso,altura,total))   
+               
+        
         for contact in self.resultado:
             self.tree.insert('', END, values=contact)
         self.tree.grid(row=0,column=0)
