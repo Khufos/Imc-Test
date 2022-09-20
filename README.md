@@ -12,6 +12,6 @@
 ### =======================================
 - Comando: tabela_rich.py
 
-![image](https://github.com/Khufos/Imc-Test/blob/main/tabela%201.jpg)
+![image](https://github.com/Khufos/Imc-Test/blob/main/aadas.jpg)
 
 
