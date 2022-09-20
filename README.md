@@ -6,7 +6,7 @@
 
 - Comando: view.py
 
-![image](https://github.com/Khufos/Imc-Test/blob/main/tkintertabela.jpg)
+![image](https://github.com/Khufos/Imc-Test/blob/main/tk-tabela.jpg)
 
 
 ### =======================================
